@@ -1,0 +1,37 @@
+.budget__item {
+    border: 1px solid #28262669;
+    border-radius: 7px;
+    padding: 15px;
+    margin: 5px;
+    width: 280px;
+    background-color: #fffffe;
+    color: #232946;
+}
+
+.budget__item-title {
+    color: #232946;
+}
+
+.budget__item-btn {
+    padding: 10px;
+    color: #b8c1ec;
+}
+
+.budget__item-top {
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.budget__item-middle {
+    margin-bottom: 15px;
+    
+}
+
+.budget__item-bottom {
+    display: flex;
+    justify-content: space-between;
+}
+
+.budget__item-rage {
+    pointer-events: none;
+}

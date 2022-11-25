@@ -1,0 +1,17 @@
+.expense-modal__content {
+  display: flex;
+  flex-direction: column;
+}
+
+.expense-modal__label {
+  margin-bottom: 5px;
+  text-align: left;
+}
+.expense-modal__input {
+  margin-bottom: 15px;
+  display: block;
+}
+
+.expense-modal__title {
+  margin-bottom: 15px;
+}
