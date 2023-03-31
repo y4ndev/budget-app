@@ -1,5 +1,5 @@
 import React from "react";
-import "./modal.css";
+import "./Modal.css";
 
 const Modal = ({ active, setActive, children }) => {
   return (
@@ -15,4 +15,4 @@ const Modal = ({ active, setActive, children }) => {
   );
 };
 
-export default Modal;
+export { Modal };

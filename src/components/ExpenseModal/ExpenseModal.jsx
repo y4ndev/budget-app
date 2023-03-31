@@ -1,5 +1,5 @@
 import React from "react";
-import "./expense-modal.css";
+import "./ExpenseModal.css";
 
 const ExpenseModal = ({ onExpenseSum, onExpenseName, onItemAdd, id }) => {
   return (
@@ -28,4 +28,4 @@ const ExpenseModal = ({ onExpenseSum, onExpenseName, onItemAdd, id }) => {
   );
 };
 
-export default ExpenseModal;
+export { ExpenseModal };

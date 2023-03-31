@@ -1,31 +1,32 @@
 import React, { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 import useInput from "../../hooks/useInput";
-import BudgetAdd from "../budget-add/budget-add";
-import BudgetList from "../budget-list/budget-list";
-import BudgetModal from "../budget-modal/budget-modal";
-import ExpenseList from "../expense-list/expense-list";
-import ExpenseModal from "../expense-modal/expense-modal";
-import Header from "../header/header";
-import Modal from "../modal/modal";
+import { BudgetAdd } from "../BudgetAdd";
+import { BudgetList } from "../BudgetList";
+import { BudgetModal } from "../BudgetModal";
+import { ExpenseList } from "../ExpenseList/ExpenseList";
+import { ExpenseModal } from "../ExpenseModal";
+import { Header } from "../Header";
+import { Modal } from "../Modal";
 import "./App.css";
 
 function App() {
   const [modalBudget, setModalBudget] = useState(false);
   const [modalExpense, setModalExpense] = useState(false);
-  const [modalVievExpense, setModalVievExpense] = useState(false);
+  const [modalViewExpense, setModalViewExpense] = useState(false);
   const [modalId, setModalId] = useState("");
-  const [budgetName, bindBudgetName, resetBudgetName] = useInput("");
-  const [budgetSum, bindBudgetSum, resetBudgetSum] = useInput("");
-  const [expenseSum, bindExpenseSum, resetExpenseSum] = useInput("");
-  const [expenseName, bindExpenseName, resetExpenseName] = useInput("");
   const [data, setData] = useState([
     { name: "Food", minSum: 0, maxSum: 100, currentSum: 50, id: uuidv4() },
     { name: "Study", minSum: 0, maxSum: 500, currentSum: 100, id: uuidv4() },
     { name: "Home", minSum: 0, maxSum: 300, currentSum: 220, id: uuidv4() },
     { name: "Travel", minSum: 0, maxSum: 150, currentSum: 70, id: uuidv4() },
   ]);
+
   const [expense, setExpense] = useState([]);
+  const [budgetName, bindBudgetName, resetBudgetName] = useInput("");
+  const [budgetSum, bindBudgetSum, resetBudgetSum] = useInput("");
+  const [expenseSum, bindExpenseSum, resetExpenseSum] = useInput("");
+  const [expenseName, bindExpenseName, resetExpenseName] = useInput("");
 
   const addModalId = (item) => {
     setModalId(item);
@@ -34,7 +35,7 @@ function App() {
 
   const addView = (item) => {
     setModalId(item);
-    setModalVievExpense(true);
+    setModalViewExpense(true);
   };
 
   const addExpense = (id, index) => {
@@ -72,7 +73,7 @@ function App() {
     <div className="App">
       <Header />
       <BudgetAdd setActive={setModalBudget} />
-      <BudgetList data={data} setActive={addModalId} setViev={addView} />
+      <BudgetList data={data} setActive={addModalId} setView={addView} />
       <Modal active={modalBudget} setActive={setModalBudget}>
         <BudgetModal
           onItemAdd={addBudget}
@@ -89,7 +90,7 @@ function App() {
           name={data}
         />
       </Modal>
-      <Modal active={modalVievExpense} setActive={setModalVievExpense}>
+      <Modal active={modalViewExpense} setActive={setModalViewExpense}>
         <ExpenseList data={expense} id={modalId} />
       </Modal>
     </div>

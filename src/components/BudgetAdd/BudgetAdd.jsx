@@ -1,6 +1,5 @@
 import React from "react";
-
-import "./budget-add.css";
+import "./BudgetAdd.css";
 
 const BudgetAdd = ({ setActive }) => {
   return (
@@ -12,4 +11,4 @@ const BudgetAdd = ({ setActive }) => {
   );
 };
 
-export default BudgetAdd;
+export { BudgetAdd };

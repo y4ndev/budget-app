@@ -1,4 +1,5 @@
-import "./expense-list.css";
+import React from "react";
+import "./ExpenseList.css";
 
 const ExpenseList = ({ data, id }) => {
   return (
@@ -8,7 +9,8 @@ const ExpenseList = ({ data, id }) => {
         .map((item, index) => {
           return (
             <li key={index}>
-              name: {item.name} price: {item.price}
+              <div>name: {item.name}</div>
+              <div>price: {item.price}</div>
             </li>
           );
         })}
@@ -16,4 +18,4 @@ const ExpenseList = ({ data, id }) => {
   );
 };
 
-export default ExpenseList;
+export { ExpenseList };

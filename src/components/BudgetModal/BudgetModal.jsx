@@ -1,5 +1,5 @@
 import React from "react";
-import "./budget-modal.css";
+import "./BudgetModal.css";
 
 const BudgetModal = ({ onItemAdd, onBudgetName, onBudgetSum }) => {
   return (
@@ -20,4 +20,4 @@ const BudgetModal = ({ onItemAdd, onBudgetName, onBudgetSum }) => {
   );
 };
 
-export default BudgetModal;
+export { BudgetModal };
