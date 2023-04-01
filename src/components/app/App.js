@@ -74,13 +74,15 @@ function App() {
       <Header />
       <BudgetAdd setActive={setModalBudget} />
       <BudgetList data={data} setActive={addModalId} setView={addView} />
-      <Modal active={modalBudget} setActive={setModalBudget}>
+      
         <BudgetModal
+          active={modalBudget}
+          setActive={setModalBudget}
           onItemAdd={addBudget}
           onBudgetName={bindBudgetName}
           onBudgetSum={bindBudgetSum}
         />
-      </Modal>
+      
       <Modal active={modalExpense} setActive={setModalExpense}>
         <ExpenseModal
           id={modalId}
