@@ -1,20 +1,24 @@
 import React from "react";
+import { Modal } from "../Modal";
 import "./ExpenseList.css";
 
-const ExpenseList = ({ data, id }) => {
+const ExpenseList = ({ data, id, active, setActive }) => {
   return (
-    <ul className="expense-list" data-id={id}>
-      {data
-        .filter((item) => item.id === id)
-        .map((item, index) => {
-          return (
-            <li key={index}>
-              <div>name: {item.name}</div>
-              <div>price: {item.price}</div>
-            </li>
-          );
-        })}
-    </ul>
+    <Modal active={active} setActive={setActive}>
+      <ul className="expense-list" data-id={id}>
+        {data
+          .filter((item) => item.id === id)
+          .map((item, index) => {
+            return (
+              <li key={index}>
+                <div>
+                  {item.name}: {item.price}$
+                </div>
+              </li>
+            );
+          })}
+      </ul>
+    </Modal>
   );
 };
 
