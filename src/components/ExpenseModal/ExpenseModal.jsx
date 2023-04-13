@@ -1,21 +1,22 @@
 import React from "react";
+import { v4 as uuidv4 } from "uuid";
 import useInput from "../../hooks/useInput";
 import { Modal } from "../Modal";
 import "./ExpenseModal.css";
 
-const ExpenseModal = ({ id, active, setActive, setExpense, expense, data, setData }) => {
+const ExpenseModal = ({ id, active, setActive, data, setData }) => {
   const [expenseSum, bindExpenseSum, resetExpenseSum] = useInput("");
   const [expenseName, bindExpenseName, resetExpenseName] = useInput("");
 
   const addExpense = () => {
     if (expenseSum && expenseName !== "") {
-      setExpense((prevExpense) => {
-        return [...prevExpense, { name: expenseName, price: expenseSum, id: id }];
-      });
-      setData(
-        data.map((item) => {
+      setData((prevState) =>
+        prevState.map((item) => {
           if (item.id === id) {
-            return { ...item, currentSum: item.currentSum + +expenseSum };
+            return {
+              ...item,
+              expense: [...item.expense, { name: expenseName, price: expenseSum, id: uuidv4() }], 
+            };
           } else {
             return item;
           }

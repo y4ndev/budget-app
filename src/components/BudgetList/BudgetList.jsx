@@ -1,4 +1,5 @@
 import React from "react";
+import { v4 as uuidv4 } from "uuid";
 import { BudgetListItem } from "../BudgetListItem";
 import "./BudgetList.css";
 
@@ -9,6 +10,7 @@ const BudgetList = ({ data, setActive, setView, onDelete }) => {
         {data.map((item) => {
           return (
             <BudgetListItem
+              key={uuidv4()}
               {...item}
               setActive={setActive}
               setView={setView}

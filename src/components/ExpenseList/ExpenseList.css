@@ -1,16 +1,24 @@
 .expense-list {
-    padding: 0;
-    margin: 0 auto;
-    list-style: none;
-    width: 200px;
-    height: 250px;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  padding: 0;
+  margin: 0 auto;
+  list-style: none;
+  width: 200px;
+  height: 250px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 
+  background-color: aliceblue;
+  border-radius: 7px;
+}
 
-    background-color: aliceblue;
-    border-radius: 7px;
+.expense__item {
+  display: flex;
+  align-items: center;
+}
+
+.expense__item img:hover {
+  cursor: pointer;
 }

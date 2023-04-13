@@ -14,13 +14,11 @@ function App() {
   const [modalViewExpense, setModalViewExpense] = useState(false);
   const [modalId, setModalId] = useState("");
   const [data, setData] = useState([
-    { name: "Food", value: 0, maxSum: 100, currentSum: 50, id: uuidv4() },
-    { name: "Study", value: 0, maxSum: 500, currentSum: 100, id: uuidv4() },
-    { name: "Home", value: 0, maxSum: 300, currentSum: 220, id: uuidv4() },
-    { name: "Travel", value: 0, maxSum: 150, currentSum: 70, id: uuidv4() },
+    { name: "Food", value: 0, maxSum: 100, currentSum: 50, id: uuidv4(), expense: [] },
+    { name: "Study", value: 0, maxSum: 500, currentSum: 100, id: uuidv4(), expense: [] },
+    { name: "Home", value: 0, maxSum: 300, currentSum: 220, id: uuidv4(), expense: [] },
+    { name: "Travel", value: 0, maxSum: 150, currentSum: 70, id: uuidv4(), expense: [] },
   ]);
-
-  const [expense, setExpense] = useState([]);
 
   const addModalId = (item) => {
     setModalId(item);
@@ -33,9 +31,20 @@ function App() {
   };
 
   const onBudgetDelete = (id) => {
-    setData((prevData) => {
-      prevData.filter((item) => item.id !== id);
-    });
+    setData((prevData) => prevData.filter((item) => item.id !== id));
+  };
+  const onExpenseDelete = (id) => {
+    // const sum = expense.reduce((sum, current) => sum + +current.price, 0);
+    // setExpense((prevExpense) => prevExpense.filter((item) => item.id !== id));
+    // setData(
+    //   data.map((item) => {
+    //     if (item.id === id) {
+    //       return { ...item, currentSum: item.currentSum - sum };
+    //     } else {
+    //       return item;
+    //     }
+    //   })
+    // );
   };
 
   return (
@@ -47,16 +56,15 @@ function App() {
       <ExpenseModal
         active={modalExpense}
         setActive={setModalExpense}
-        setExpense={setExpense}
         setData={setData}
         data={data}
-        expense={expense}
         id={modalId}
       />
       <ExpenseList
+        onDelete={onExpenseDelete}
         active={modalViewExpense}
         setActive={setModalViewExpense}
-        data={expense}
+        data={data}
         id={modalId}
       />
     </div>
