@@ -17,6 +17,10 @@
 .expense__item {
   display: flex;
   align-items: center;
+  font-size: 18px;
+  font-weight: 500;
+  margin-bottom: 3px;
+  text-align: left;
 }
 
 .expense__item img:hover {

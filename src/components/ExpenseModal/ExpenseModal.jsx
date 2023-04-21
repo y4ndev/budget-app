@@ -15,18 +15,19 @@ const ExpenseModal = ({ id, active, setActive, data, setData }) => {
           if (item.id === id) {
             return {
               ...item,
-              expense: [...item.expense, { name: expenseName, price: expenseSum, id: uuidv4() }], 
+              expense: [...item.expense, { name: expenseName, price: expenseSum, id: uuidv4() }],
             };
           } else {
             return item;
           }
         })
       );
+      setActive(false);
+      resetExpenseName();
+      resetExpenseSum();
+    } else {
+      alert("please, fill in the fields to add");
     }
-
-    setActive(false);
-    resetExpenseName();
-    resetExpenseSum();
   };
 
   return (

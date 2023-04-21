@@ -13,8 +13,8 @@ const ExpenseList = ({ data, id, active, setActive, onDelete }) => {
           expense.map((item, index) => (
             <li key={index}>
               <div className="expense__item">
-                {item.name} {item.price}$
-                <img onClick={() => onDelete(item.id)} src={removeImg} alt="remove" />
+                {item.name}: {item.price}$
+                <img onClick={() => onDelete(item.id, id)} src={removeImg} alt="remove" />
               </div>
             </li>
           ))

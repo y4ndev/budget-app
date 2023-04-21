@@ -14,6 +14,7 @@ const BudgetModal = ({ active, setActive, data, setData }) => {
       value: 0,
       maxSum: +budgetSum,
       currentSum: 0,
+      expense: [],
       id: uuidv4(),
     };
 

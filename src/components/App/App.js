@@ -33,18 +33,14 @@ function App() {
   const onBudgetDelete = (id) => {
     setData((prevData) => prevData.filter((item) => item.id !== id));
   };
-  const onExpenseDelete = (id) => {
-    // const sum = expense.reduce((sum, current) => sum + +current.price, 0);
-    // setExpense((prevExpense) => prevExpense.filter((item) => item.id !== id));
-    // setData(
-    //   data.map((item) => {
-    //     if (item.id === id) {
-    //       return { ...item, currentSum: item.currentSum - sum };
-    //     } else {
-    //       return item;
-    //     }
-    //   })
-    // );
+
+  const onExpenseDelete = (expenseId, id) => {
+    setData(
+      data.map((item) => ({
+        ...item,
+        expense: item.expense.filter((tag) => tag.id !== expenseId),
+      }))
+    );
   };
 
   return (
