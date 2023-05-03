@@ -7,6 +7,7 @@ import "./ExpenseModal.css";
 const ExpenseModal = ({ id, active, setActive, data, setData }) => {
   const [expenseSum, bindExpenseSum, resetExpenseSum] = useInput("");
   const [expenseName, bindExpenseName, resetExpenseName] = useInput("");
+  const currentItem = data.find((item) => id === item.id);
 
   const addExpense = () => {
     if (expenseSum && expenseName !== "") {
@@ -15,6 +16,9 @@ const ExpenseModal = ({ id, active, setActive, data, setData }) => {
           if (item.id === id) {
             return {
               ...item,
+              currentSum: Object.values(currentItem.expense).reduce((sum, { price }) => {
+                return sum + +price;
+              }, item.currentSum),
               expense: [...item.expense, { name: expenseName, price: expenseSum, id: uuidv4() }],
             };
           } else {
