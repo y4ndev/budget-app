@@ -34,10 +34,11 @@ function App() {
     setData((prevData) => prevData.filter((item) => item.id !== id));
   };
 
-  const onExpenseDelete = (expenseId, id) => {
+  const onExpenseDelete = (expenseId, id, price) => {
     setData(
       data.map((item) => ({
         ...item,
+        currentSum: item.id === id ? item.currentSum - price : item.currentSum,
         expense: item.expense.filter((tag) => tag.id !== expenseId),
       }))
     );

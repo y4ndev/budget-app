@@ -6,7 +6,6 @@ import "./ExpenseList.css";
 const ExpenseList = ({ data, id, active, setActive, onDelete }) => {
   const items = data.filter((item) => item.id === id);
 
-
   return (
     <Modal active={active} setActive={setActive}>
       {items[0]?.expense?.length ? (
@@ -16,7 +15,11 @@ const ExpenseList = ({ data, id, active, setActive, onDelete }) => {
               <li key={index}>
                 <div className="expense__item">
                   {item.name}: {item.price}$
-                  <img onClick={() => onDelete(item.id, id)} src={removeImg} alt="remove" />
+                  <img
+                    onClick={() => onDelete(item.id, id, +item.price)}
+                    src={removeImg}
+                    alt="remove"
+                  />
                 </div>
               </li>
             ))
